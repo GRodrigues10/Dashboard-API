@@ -1,0 +1,26 @@
+{
+  "name": "dashboard-api",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GRodrigues10/Dashboard-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GRodrigues10/Dashboard-API/issues"
+  },
+  "homepage": "https://github.com/GRodrigues10/Dashboard-API#readme",
+  "description": ""
+}
