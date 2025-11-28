@@ -2,21 +2,36 @@
 
 API REST para gerenciamento de usuários de um **Dashboard moderno**.
 
+Base URL: `https://dashboard-api-674f.onrender.com/api`
+
 ---
 
-## Endpoints
+## Endpoints Disponíveis
 
-| Método | Endpoint   | Descrição                  |
-|--------|------------|----------------------------|
-| GET    | /api/users     | Listar todos os usuários   |
-| POST   | /api/users     | Criar um novo usuário      |
-| GET    | /api/users/:id | Consultar usuário por ID   |
-
-Base URL: `https://dashboard-api-674f.onrender.com`
+| Método | Endpoint           | Descrição                  |
+|--------|------------------|----------------------------|
+| POST   | /register        | Criar um novo usuário      |
+| POST   | /login           | Login de usuário           |
+| GET    | /users           | Listar todos os usuários   |
+| POST   | /forgotpassword  | Trocar senha               |
 
 ---
 
 ## Exemplos de Requisição
+
+**Criar um novo usuário**
+```bash
+curl -X POST https://dashboard-api-674f.onrender.com/api/register \
+-H "Content-Type: application/json" \
+-d '{"name": "Gabriel Rodrigues", "email": "gabriel@gmail.com", "password": "123456"}'
+```
+
+**Login de usuário**
+```bash
+curl -X POST https://dashboard-api-674f.onrender.com/api/login \
+-H "Content-Type: application/json" \
+-d '{"email": "gabriel@gmail.com", "password": "123456"}'
+```
 
 **Listar todos os usuários**
 ```bash
@@ -40,32 +55,15 @@ Resposta:
 ]
 ```
 
-**Criar um novo usuário**
+**Trocar senha (Esqueci minha senha)**
 ```bash
-curl -X POST https://dashboard-api-674f.onrender.com/api/users \
+curl -X POST https://dashboard-api-674f.onrender.com/api/forgotpassword \
 -H "Content-Type: application/json" \
--d '{"name": "Antônio Rodrigues", "email": "antoniorodrigues@gmail.com"}'
+-d '{"email": "gabriel@gmail.com", "newPassword": "novaSenha123"}'
 ```
 Resposta:
 ```json
 {
-  "_id": "6928019a6b8bdabac2c89938",
-  "name": "Antônio Rodrigues",
-  "email": "antoniorodrigues@gmail.com",
-  "createdAt": "2025-11-27T07:45:30.041Z"
-}
-```
-
-**Consultar usuário por ID**
-```bash
-curl -X GET https://dashboard-api-674f.onrender.com/api/users/691b19455af0f3b33115490b
-```
-Resposta:
-```json
-{
-  "_id": "691b19455af0f3b33115490b",
-  "name": "Gabriel Rodrigues",
-  "email": "gabriel@gmail.com",
-  "createdAt": "2025-11-17T12:47:01.888Z"
+  "message": "Senha atualizada com sucesso!"
 }
 ```
