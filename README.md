@@ -1,8 +1,6 @@
 # Dashboard API
 
-API REST para gerenciamento de usuários de um **Dashboard moderno**. Permite listar, adicionar e consultar usuários com informações básicas: nome, e-mail e data de criação.
-
-
+API REST para gerenciamento de usuários de um **Dashboard moderno**.
 
 ---
 
@@ -10,9 +8,11 @@ API REST para gerenciamento de usuários de um **Dashboard moderno**. Permite li
 
 | Método | Endpoint   | Descrição                  |
 |--------|------------|----------------------------|
-| GET    | /users     | Listar todos os usuários   |
-| POST   | /users     | Criar um novo usuário      |
-| GET    | /users/:id | Consultar usuário por ID   |
+| GET    | /api/users     | Listar todos os usuários   |
+| POST   | /api/users     | Criar um novo usuário      |
+| GET    | /api/users/:id | Consultar usuário por ID   |
+
+Base URL: `https://dashboard-api-674f.onrender.com`
 
 ---
 
@@ -20,7 +20,7 @@ API REST para gerenciamento de usuários de um **Dashboard moderno**. Permite li
 
 **Listar todos os usuários**
 ```bash
-curl -X GET http://localhost:5000/users
+curl -X GET https://dashboard-api-674f.onrender.com/api/users
 ```
 Resposta:
 ```json
@@ -42,7 +42,7 @@ Resposta:
 
 **Criar um novo usuário**
 ```bash
-curl -X POST http://localhost:5000/users \
+curl -X POST https://dashboard-api-674f.onrender.com/api/users \
 -H "Content-Type: application/json" \
 -d '{"name": "Antônio Rodrigues", "email": "antoniorodrigues@gmail.com"}'
 ```
@@ -58,7 +58,7 @@ Resposta:
 
 **Consultar usuário por ID**
 ```bash
-curl -X GET http://localhost:5000/users/691b19455af0f3b33115490b
+curl -X GET https://dashboard-api-674f.onrender.com/api/users/691b19455af0f3b33115490b
 ```
 Resposta:
 ```json
@@ -69,15 +69,3 @@ Resposta:
   "createdAt": "2025-11-17T12:47:01.888Z"
 }
 ```
-
----
-
-## Rodando a API
-
-```bash
-git clone https://github.com/seu-usuario/dashboard-api.git
-cd dashboard-api
-npm install
-npm run dev
-```
-
